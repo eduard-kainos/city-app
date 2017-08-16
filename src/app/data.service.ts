@@ -1,27 +1,11 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {City} from "./city";
 
 @Injectable()
 export class DataService {
 
-  constructor() {
+  constructor(private http: HttpClient) {}
 
-  }
-
-  cities = [
-    {
-      id: 469,
-      name: 'Belfast',
-      countrycode: 'GBR',
-      district: 'Northern Ireland',
-      population: 200000
-    },
-    {
-      id: 1447,
-      name: 'Dublin',
-      countrycode: 'IRL',
-      district: 'Leinster',
-      population: 481000
-    }
-  ];
-
+  cities = this.http.get<City[]>('/api/cities');
 }

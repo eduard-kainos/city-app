@@ -7,6 +7,8 @@ import { DataService } from './data.service';
 import { ListingComponent } from './listing/listing.component';
 import {SwitchboardService} from "./switchboard.service";
 
+import {HttpClientModule} from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import {SwitchboardService} from "./switchboard.service";
     ListingComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     DataService,
