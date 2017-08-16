@@ -2,6 +2,8 @@ import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import { City } from '../city';
 import {SwitchboardService} from '../switchboard.service';
 import {Subscription} from 'rxjs/Subscription';
+import {isUndefined} from "util";
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'city-detail',
@@ -12,8 +14,10 @@ export class DetailComponent implements OnInit, OnDestroy {
   city: City;
   switchboard: SwitchboardService;
   subCity: Subscription;
+  data: DataService;
 
-  constructor(switchboard: SwitchboardService) {
+  constructor(switchboard: SwitchboardService, data: DataService) {
+    this.data = data;
     this.switchboard = switchboard;
   }
 
@@ -25,5 +29,26 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subCity.unsubscribe();
+  }
+
+  becomeAvailable(city){
+      city.edit = true;
+  }
+
+  becomeUnavailable(city){
+      city.edit = undefined;
+  }
+
+  onEdit(city){
+    if(isUndefined(city.edit)){
+      this.becomeAvailable(city);
+    }else{
+        this.becomeUnavailable(city);
+    }
+  }
+
+  onSave(city){
+    this.data.saveCity(city);
+    this.becomeUnavailable(city);
   }
 }

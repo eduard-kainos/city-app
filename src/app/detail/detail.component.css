@@ -1,0 +1,14 @@
+.editPop{
+    margin: 0 2px;
+}
+
+.editPop label{
+    display: block;
+}
+
+.editPop input#population{
+    display: block;
+    width: calc(100% - 6px);
+}
+
+

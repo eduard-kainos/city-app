@@ -4,4 +4,5 @@ export class City {
   countrycode: string;
   district: string;
   population: number;
+  edit: boolean;
 }

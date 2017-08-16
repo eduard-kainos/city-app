@@ -1,4 +1,4 @@
 <h2>Cities</h2>
-<ul class="list">
+<ol class="list">
   <li *ngFor="let city of data.cities|async" (click)="onSelect(city)">{{city.name}}</li>
-</ul>
+</ol>

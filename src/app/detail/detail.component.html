@@ -1,8 +1,13 @@
 <div class="detail" *ngIf="city">
-  <fieldset>
+  <fieldset (click)="onEdit(city)">
     <legend>{{city.name}}</legend>
     <p>Country code: {{city.countrycode}} </p>
     <p>District: {{city.district}} </p>
     <p>Population: {{city.population}} </p>
   </fieldset>
+  <div *ngIf="city.edit==true" class="editPop">
+    <label for="population">Population</label>
+    <input name="Population" id="population" [(ngModel)]="city.population" autofocus />
+    <input type="button" value="Save" (click)="onSave(city)"/>
+  </div>
 </div>
