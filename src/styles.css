@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+.list{
+  text-align: left;
+  float: left;
+}
+
+.detail{
+  text-align: left;
+  float: right;
+}
