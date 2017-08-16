@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs/Subscription';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit, OnDestroy {
-  @Input() city: City;
+  city: City;
   switchboard: SwitchboardService;
   subCity: Subscription;
 
